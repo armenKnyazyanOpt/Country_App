@@ -1,0 +1,20 @@
+.homepage-container {
+  overflow: auto;
+  max-height: 100vh;
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 70px;
+    height: calc(100vh - 50px);
+    overflow: scroll;
+
+    .search-bar-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 50px;
+      margin: 10px 0;
+    }
+  }
+}
