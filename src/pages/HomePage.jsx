@@ -18,7 +18,7 @@ export function HomePage () {
         {id: 2, value: 'Americas'},
         {id: 3, value: 'Asia'},
         {id: 4, value: 'Europe'},
-        {id: 5, value: 'Oceania'},
+        {id: 5, value: 'Oceania'}
     ];
 
     const handleSelectChange = (e) => {
@@ -50,7 +50,7 @@ export function HomePage () {
         })
     }
 
-    useEffect(()=>{
+    useEffect(()=> {
         getData()
     },[keyword, filter])
 
