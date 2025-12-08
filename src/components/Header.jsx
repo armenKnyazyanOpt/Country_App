@@ -2,7 +2,7 @@ import './Header.scss';
 
 function Header ({darkMode, switchMode}) {
     return (
-        <header>
+        <header className="header">
             <h1>Where in the world ? </h1>
             <div className="dark-mode-btn" onClick={switchMode}>
                 <img src="dark-mode.svg" alt=""/>
