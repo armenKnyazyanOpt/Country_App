@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import {ThemeProvider} from "./context/ThemeContext.jsx";
 import {HomePage} from "./pages/HomePage.jsx";
 
