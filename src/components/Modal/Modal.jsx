@@ -42,9 +42,11 @@ function Modal ({countryDetail, handleClose}) {
                         </div>
                         <div className='border-countries'>
                             <strong>Border Countries: </strong>
-                            {countryDetail.borders?.map((item) => (
-                                <span>{item}</span>
-                            ))}
+                            <div>
+                                {countryDetail.borders?.map((item) => (
+                                    <span key={item}>{item}</span>
+                                ))}
+                            </div>
                         </div>
                     </div>
 

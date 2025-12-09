@@ -14,11 +14,11 @@ export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(false);
 
     const toggleTheme = () => {
-        console.log('Toggle Theme', theme);
         setTheme((mode) => !mode);
     };
 
     useEffect(() => {
+        console.log('Toggle Theme', theme);
         document.body.setAttribute(
             "data-theme",
             theme ? "dark" : "light"

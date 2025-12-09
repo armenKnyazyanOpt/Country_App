@@ -8,12 +8,8 @@ import './HomePage.scss';
 
 export function HomePage () {
     const { theme, setTheme } = useThemeContext();
-
     const [keyword, setKeyword] = useState("");
     const [filter, setFilter] = useState({id: 1, value: 'Africa'});
-    const [countryItems, setCountryItems] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(true);
 
     const filterOptions = [
         {id: 1, value: 'Africa'},
@@ -28,36 +24,9 @@ export function HomePage () {
         setFilter(selectedItem);
     };
 
-    const getData = ()=> {
-        setTimeout(() => {
-             fetch('data.json'
-                ,{
-                    headers : {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    }
-                }
-            )
-                .then(function(response){
-                    return response.json();
-                })
-                .then(function(parsedData) {
-                    const filteredCountryData = applyFilters(parsedData);
-                    setCountryItems(filteredCountryData)
-                });
-        }, 4000)
-
-    }
-
-    function applyFilters (data) {
-        return data.filter((item) => {
-            return (item.name.toLowerCase().includes(keyword) && item.region === filter.value);
-        })
-    }
-
-    useEffect(()=> {
-        getData()
-    },[keyword, filter])
+    // useEffect(()=> {
+    //     getData()
+    // },[keyword, filter])
 
     return (
         <div className="homepage-container">
@@ -74,7 +43,7 @@ export function HomePage () {
                     />
                 </div>
                 <div className="list-container">
-                    <CountriesList items={countryItems}/>
+                    <CountriesList keyword={keyword} filter={filter} />
                 </div>
             </div>
         </div>
