@@ -1,4 +1,3 @@
-import './CountryItem.scss';
 import Modal from "../Modal/Modal.jsx";
 import {useState} from "react";
 import {createPortal} from "react-dom";

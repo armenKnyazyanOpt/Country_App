@@ -1,5 +1,4 @@
 import CountryItemCard from "./CountryItem.jsx";
-import './CountryList.scss';
 import {useCountries} from "../../hooks/useCountries.js";
 
 export function CountriesList ({keyword, filter}) {
@@ -15,7 +14,7 @@ export function CountriesList ({keyword, filter}) {
             }
             {
                 (!data && loading) &&
-                <div>
+                <div className="spinner">
                     Loading...
                 </div>
             }

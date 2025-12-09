@@ -68,6 +68,11 @@
         width: auto;
       }
 
+      .modal-name {
+        font-size: 32px;
+        font-weight: 600;
+      }
+
       .modal-details {
         display: flex;
         gap: 20px;
@@ -91,10 +96,5 @@
       }
     }
   }
-}
-
-.modal-name {
-  font-size: 2rem;
-  font-weight: 600;
 }
 

@@ -4,25 +4,11 @@
   font-family: variables.$font-stack;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-//
-//a {
-//  font-weight: 500;
-//  color: #646cff;
-//  text-decoration: inherit;
-//}
-//a:hover {
-//  color: #535bf2;
-//}
 
 body {
   margin: 0;
@@ -30,29 +16,29 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: variables.$color-white;
+  color: variables.$color-black;
 }
 
-body[data-theme="light"] {
-  --bg-color: white;
-  --text-color: black;
-}
+[data-theme="dark"] {
+  background-color: variables.$color-black;
+  color: variables.$color-white;
 
-body[data-theme="dark"] {
-  --bg-color: black;
-  --text-color: white;
-}
+  .header {
+    background-color: variables.$color-black;
+    color: variables.$color-white;
+    box-shadow: 1px 2px 2px 1px variables.$dark-shadow-color;
 
-//[data-theme="light"] {
-//    --bg-color: white;
-//    --text-color: black;
-//}
-//
-//[data-theme="dark"] {
-//    --bg-color: black;
-//    --text-color: white;
-//}
-//
-//body {
-//    background-color: var(--bg-color);
-//    color: var(--text-color);
-//}
+
+    .dark-mode-btn {
+      color: variables.$color-white;
+
+      .dark-mode-icon {
+        svg {
+          fill: variables.$color-white;
+          stroke: none;
+        }
+      }
+    }
+  }
+}

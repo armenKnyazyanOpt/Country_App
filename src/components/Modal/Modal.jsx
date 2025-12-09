@@ -1,5 +1,3 @@
-import './Modal.scss';
-
 function Modal ({countryDetail, handleClose}) {
     return (
         <div className="modal-backdrop">

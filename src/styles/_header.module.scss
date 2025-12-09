@@ -10,7 +10,7 @@
   box-shadow: 1px 2px 2px 1px $primary-shadow-color;
   background-color: $color-white;
 
-  h1 {
+  .header-title {
     font-size: 20px;
   }
 
@@ -20,7 +20,7 @@
     column-gap: 5px;
     cursor: pointer;
 
-    img {
+    .dark-mode-icon {
       width: 25px;
       height: 25px;
     }

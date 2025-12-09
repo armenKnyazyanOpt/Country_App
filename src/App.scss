@@ -1,6 +1,10 @@
 @use "styles/header.module";
 @use "styles/searchBar.module";
 @use "styles/filter.module";
+@use "styles/modal.module";
+@use "styles/layout.module";
+@use "styles/card.module";
+@use "styles/grid.module";
 
 #root {
   padding: 0;

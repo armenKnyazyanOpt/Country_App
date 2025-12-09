@@ -18,7 +18,6 @@ export const ThemeProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        console.log('Toggle Theme', theme);
         document.body.setAttribute(
             "data-theme",
             theme ? "dark" : "light"

@@ -2,12 +2,11 @@ import Header from "../components/Header.jsx";
 import {useThemeContext} from "../context/ThemeContext.jsx";
 import SearchBar from "../components/Filter/SearchBar.jsx";
 import FilterDropdown from "../components/Filter/FilterDropdown.jsx";
-import {Suspense, useEffect, useState} from "react";
+import {useState} from "react";
 import {CountriesList} from "../components/CountryList/CountriesList.jsx";
-import './HomePage.scss';
 
 export function HomePage () {
-    const { theme, setTheme } = useThemeContext();
+    const { theme, toggleTheme } = useThemeContext();
     const [keyword, setKeyword] = useState("");
     const [filter, setFilter] = useState({id: 1, value: 'Africa'});
 
@@ -24,13 +23,9 @@ export function HomePage () {
         setFilter(selectedItem);
     };
 
-    // useEffect(()=> {
-    //     getData()
-    // },[keyword, filter])
-
     return (
         <div className="homepage-container">
-            <Header darkMode={theme} switchMode={setTheme}/>
+            <Header darkMode={theme} switchMode={toggleTheme}/>
             <div className="main-content">
                 <div className="search-bar-container">
                     <SearchBar

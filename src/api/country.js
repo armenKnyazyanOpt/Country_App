@@ -15,8 +15,6 @@ export async function fetchCountries(filterData) {
 }
 
 function applyFilters (data, keyword, selectedOption) {
-    debugger;
-
     return data.filter((item) => {
         return (item.name.toLowerCase().includes(keyword) && item.region === selectedOption.value);
     })
