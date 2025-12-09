@@ -1,6 +1,7 @@
 import './CountryItem.scss';
 import Modal from "../Modal/Modal.jsx";
 import {useState} from "react";
+import {createPortal} from "react-dom";
 
 function CountryItemCard ({countryData}) {
     const [showModal, setShowModal] = useState(false)
@@ -21,7 +22,10 @@ function CountryItemCard ({countryData}) {
                 </div>
             </div>
         </div>
-        {showModal && <Modal countryDetail={countryData} handleClose={handleClose}></Modal>}
+            {showModal && createPortal(
+                <Modal countryDetail={countryData} handleClose={handleClose}></Modal>,
+                document.body
+            )}
         </>
     )
 }

@@ -4,7 +4,7 @@ import {HomePage} from "./pages/HomePage.jsx";
 
 function App() {
 
-  return (
+    return (
         <ThemeProvider>
             <div className="main-container">
                 <HomePage />

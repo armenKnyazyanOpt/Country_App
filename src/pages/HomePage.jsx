@@ -1,17 +1,19 @@
 import Header from "../components/Header.jsx";
-import {useTheme} from "../context/ThemeContext.jsx";
+import {useThemeContext} from "../context/ThemeContext.jsx";
 import SearchBar from "../components/Filter/SearchBar.jsx";
 import FilterDropdown from "../components/Filter/FilterDropdown.jsx";
-import {useEffect, useState} from "react";
+import {Suspense, useEffect, useState} from "react";
 import {CountriesList} from "../components/CountryList/CountriesList.jsx";
 import './HomePage.scss';
 
 export function HomePage () {
-    const { toggleTheme, darkMode } = useTheme();
+    const { theme, setTheme } = useThemeContext();
 
     const [keyword, setKeyword] = useState("");
     const [filter, setFilter] = useState({id: 1, value: 'Africa'});
     const [countryItems, setCountryItems] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(true);
 
     const filterOptions = [
         {id: 1, value: 'Africa'},
@@ -26,22 +28,25 @@ export function HomePage () {
         setFilter(selectedItem);
     };
 
-    const getData = async ()=> {
-        await fetch('data.json'
-            ,{
-                headers : {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+    const getData = ()=> {
+        setTimeout(() => {
+             fetch('data.json'
+                ,{
+                    headers : {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
                 }
-            }
-        )
-            .then(function(response){
-                return response.json();
-            })
-            .then(function(parsedData) {
-                const filteredCountryData = applyFilters(parsedData);
-                setCountryItems(filteredCountryData)
-            });
+            )
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(parsedData) {
+                    const filteredCountryData = applyFilters(parsedData);
+                    setCountryItems(filteredCountryData)
+                });
+        }, 4000)
+
     }
 
     function applyFilters (data) {
@@ -50,13 +55,13 @@ export function HomePage () {
         })
     }
 
-    useEffect(()=>{
+    useEffect(()=> {
         getData()
     },[keyword, filter])
 
     return (
         <div className="homepage-container">
-            <Header darkMode={darkMode} switchMode={toggleTheme}/>
+            <Header darkMode={theme} switchMode={setTheme}/>
             <div className="main-content">
                 <div className="search-bar-container">
                     <SearchBar
