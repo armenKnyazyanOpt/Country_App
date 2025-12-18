@@ -1,8 +1,8 @@
 import Header from "../components/Header.jsx";
 import {useThemeContext} from "../context/ThemeContext.jsx";
 import SearchBar from "../components/Filter/SearchBar.jsx";
-import FilterDropdown from "../components/Filter/FilterDropdown.jsx";
 import {useState} from "react";
+import FilterDropdown from "search-filter-header";
 import {CountriesList} from "../components/CountryList/CountriesList.jsx";
 
 export function HomePage () {
