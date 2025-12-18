@@ -11,9 +11,9 @@ function CountryItemCard ({countryData}) {
     return (
         <>
         <div className="country-card" onClick={openModal}>
-            <img src={countryData.flag} alt=""/>
+            <img src={countryData.flag} alt={`${countryData.name} flag`}/>
             <div className="card-content">
-                <p>{countryData.name}</p>
+                <h4 className="heading">{countryData.name}</h4>
                 <div className="card-details">
                     <span>Population: {countryData.population}</span>
                     <span>Region: {countryData.region}</span>

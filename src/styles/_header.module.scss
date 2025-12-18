@@ -1,5 +1,5 @@
-@import "variables.module";
-@import "toggle.module";
+@use "variables.module";
+@use "toggle.module";
 
 .header {
   display: flex;
@@ -7,8 +7,8 @@
   align-items: center;
   padding: 0 30px;
   height: 70px;
-  box-shadow: 1px 2px 2px 1px $primary-shadow-color;
-  background-color: $color-white;
+  box-shadow: 1px 2px 2px 1px variables.$primary-shadow-color;
+  background-color: variables.$color-white;
 
   .header-title {
     font-size: 20px;
