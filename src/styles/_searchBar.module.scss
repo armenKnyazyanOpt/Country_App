@@ -1,4 +1,4 @@
-@import 'variables.module';
+@use 'variables.module';
 
 input {
   width: 400px;
@@ -7,5 +7,5 @@ input {
   outline: none;
   border: none;
   font-size: 17px;
-  box-shadow: 1px 2px 3px 1px $primary-shadow-color;
+  box-shadow: 1px 2px 3px 1px variables.$primary-shadow-color;
 }

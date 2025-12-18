@@ -1,6 +1,6 @@
 function Modal ({countryDetail, handleClose}) {
     return (
-        <div className="modal-backdrop">
+        <div className="modal-backdrop" data-testid="modal">
             <div className="modal">
                 <div className="close-button">
                     <button className="close-btn" onClick={()=> handleClose()}>Back</button>
