@@ -1,5 +1,3 @@
-import './SearchBar.scss';
-
 function SearchBar ({value, onChange}) {
     return (
             <input

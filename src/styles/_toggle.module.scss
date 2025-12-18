@@ -1,0 +1,16 @@
+.dark-mode-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+
+  .dark-mode-icon {
+    width: 25px;
+    height: 22px;
+  }
+}

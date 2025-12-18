@@ -1,5 +1,3 @@
-import './FilterDropdown.scss';
-
 function FilterDropdown({options, value, onChange}) {
     return (
         <div className="dropdown-container">

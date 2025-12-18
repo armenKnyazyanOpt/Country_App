@@ -23,11 +23,11 @@
 
     .close-btn{
       background-color: #ebebf2;
-      border-radius: 3px;
+      border-radius: 4px;
       cursor: pointer;
-      font-size: 1.1rem;
-      padding: 1rem 2rem;
-      margin-top: 2rem;
+      font-size: 17px;
+      padding: 16px 32px;
+      margin-top: 32px;
       outline: none;
       border: none;
       font-weight: 300;
@@ -48,6 +48,12 @@
     margin-top: 50px;
     padding: 35px;
 
+    @media (max-width: 1000px) {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 0;
+    }
+
     img {
       width: 42%;
     }
@@ -58,12 +64,25 @@
       align-items: flex-start;
       width: 40%;
 
+      @media (max-width: 1000px) {
+        width: auto;
+      }
+
+      .modal-name {
+        font-size: 32px;
+        font-weight: 600;
+      }
+
       .modal-details {
         display: flex;
         gap: 20px;
       }
 
       .border-countries {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
         span {
           width: 50px;
           padding: 10px 20px;
@@ -77,10 +96,5 @@
       }
     }
   }
-}
-
-.modal-name {
-  font-size: 2rem;
-  font-weight: 600;
 }
 

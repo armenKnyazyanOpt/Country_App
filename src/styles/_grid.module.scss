@@ -1,0 +1,7 @@
+.country-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
+  column-gap: 10px;
+  row-gap: 30px;
+  padding: 13px 0;
+}

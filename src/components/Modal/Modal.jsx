@@ -1,11 +1,9 @@
-import './Modal.scss';
-
 function Modal ({countryDetail, handleClose}) {
     return (
         <div className="modal-backdrop">
             <div className="modal">
                 <div className="close-button">
-                    <button className="close-btn" onClick={()=> handleClose()}>Close</button>
+                    <button className="close-btn" onClick={()=> handleClose()}>Back</button>
                 </div>
                 <div className="modal-body">
                     <img className="modal-img" src={countryDetail.flag} alt="country flag" />
@@ -42,9 +40,11 @@ function Modal ({countryDetail, handleClose}) {
                         </div>
                         <div className='border-countries'>
                             <strong>Border Countries: </strong>
-                            {countryDetail.borders.map((item) => (
-                                <span>{item}</span>
-                            ))}
+                            <div>
+                                {countryDetail.borders?.map((item) => (
+                                    <span key={item}>{item}</span>
+                                ))}
+                            </div>
                         </div>
                     </div>
 

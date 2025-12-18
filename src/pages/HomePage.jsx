@@ -1,17 +1,14 @@
 import Header from "../components/Header.jsx";
-import {useTheme} from "../context/ThemeContext.jsx";
+import {useThemeContext} from "../context/ThemeContext.jsx";
 import SearchBar from "../components/Filter/SearchBar.jsx";
 import FilterDropdown from "../components/Filter/FilterDropdown.jsx";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {CountriesList} from "../components/CountryList/CountriesList.jsx";
-import './HomePage.scss';
 
 export function HomePage () {
-    const { toggleTheme, darkMode } = useTheme();
-
+    const { theme, toggleTheme } = useThemeContext();
     const [keyword, setKeyword] = useState("");
     const [filter, setFilter] = useState({id: 1, value: 'Africa'});
-    const [countryItems, setCountryItems] = useState([]);
 
     const filterOptions = [
         {id: 1, value: 'Africa'},
@@ -26,37 +23,9 @@ export function HomePage () {
         setFilter(selectedItem);
     };
 
-    const getData = async ()=> {
-        await fetch('data.json'
-            ,{
-                headers : {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            }
-        )
-            .then(function(response){
-                return response.json();
-            })
-            .then(function(parsedData) {
-                const filteredCountryData = applyFilters(parsedData);
-                setCountryItems(filteredCountryData)
-            });
-    }
-
-    function applyFilters (data) {
-        return data.filter((item) => {
-            return (item.name.toLowerCase().includes(keyword) && item.region === filter.value);
-        })
-    }
-
-    useEffect(()=>{
-        getData()
-    },[keyword, filter])
-
     return (
         <div className="homepage-container">
-            <Header darkMode={darkMode} switchMode={toggleTheme}/>
+            <Header darkMode={theme} switchMode={toggleTheme}/>
             <div className="main-content">
                 <div className="search-bar-container">
                     <SearchBar
@@ -69,7 +38,7 @@ export function HomePage () {
                     />
                 </div>
                 <div className="list-container">
-                    <CountriesList items={countryItems}/>
+                    <CountriesList keyword={keyword} filter={filter} />
                 </div>
             </div>
         </div>

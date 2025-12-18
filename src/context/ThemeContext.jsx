@@ -1,27 +1,31 @@
 import { useState, createContext, useContext, useEffect } from "react";
 
-const ThemeContext = createContext();
+const ThemeContext = createContext(null);
 
-export const useTheme = () => {
-    return useContext(ThemeContext);
-};
+export function useThemeContext() {
+    const context = useContext(ThemeContext);
+    if (context === null) {
+        throw new Error('useThemeContext must be used within a ThemeProvider');
+    }
+    return context;
+}
 
 export const ThemeProvider = ({ children }) => {
-    const [darkMode, setDarkMode] = useState(false);
+    const [theme, setTheme] = useState(false);
 
     const toggleTheme = () => {
-        setDarkMode((mode) => !mode);
+        setTheme((mode) => !mode);
     };
 
     useEffect(() => {
-        document.documentElement.setAttribute(
+        document.body.setAttribute(
             "data-theme",
-            darkMode ? "dark" : "light"
+            theme ? "dark" : "light"
         );
-    }, [darkMode]);
+    }, [theme]);
 
     return (
-        <ThemeContext.Provider value={{ toggleTheme, darkMode }}>
+        <ThemeContext.Provider value={{ toggleTheme, theme }}>
             {children}
         </ThemeContext.Provider>
     );

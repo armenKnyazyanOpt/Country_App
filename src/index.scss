@@ -1,0 +1,44 @@
+@use "styles/variables.module";
+
+:root {
+  font-family: variables.$font-stack;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: variables.$color-white;
+  color: variables.$color-black;
+}
+
+[data-theme="dark"] {
+  background-color: variables.$color-black;
+  color: variables.$color-white;
+
+  .header {
+    background-color: variables.$color-black;
+    color: variables.$color-white;
+    box-shadow: 1px 2px 2px 1px variables.$dark-shadow-color;
+
+
+    .dark-mode-btn {
+      color: variables.$color-white;
+
+      .dark-mode-icon {
+        svg {
+          fill: variables.$color-white;
+          stroke: none;
+        }
+      }
+    }
+  }
+}
